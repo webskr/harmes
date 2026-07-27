@@ -127,7 +127,7 @@ fi
 
 case "$MODEL_PREFIX" in
   openrouter)
-    [ -n "$LLM_API_KEY" ] && export OPENROUTER_API_KEY="${OPENROUTER_API_KEY:-$LLM_API_KEY}"
+    [ -n "$LLM_API_KEY" ] && export OPENROUTER_API_KEY="${OPENROUTER_API_KEY:-$LLM_API_KEY}" OPENAI_API_KEY="${OPENAI_API_KEY:-$LLM_API_KEY}"
     [ "$PROVIDER_FOR_CONFIG" = "auto" ] && PROVIDER_FOR_CONFIG="openrouter"
     MODEL_FOR_CONFIG="${MODEL_INPUT#openrouter/}"
     ;;
