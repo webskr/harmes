@@ -74,7 +74,7 @@ Watch a quick walkthrough on YouTube: [Deploying HuggingMes on HF Spaces](https:
 
 ### Step 1: Duplicate this Space
 
-[![Duplicate this Space](https://huggingface.co/datasets/huggingface/badges/resolve/main/duplicate-this-space-xl.svg)](https://huggingface.co/spaces/somratpro/HuggingMes?duplicate=true)
+[![Duplicate this Space](https://huggingface.co/datasets/huggingface/badges/resolve/main/duplicate-this-space-xl.svg)](https://huggingface.co/spaces/deepak-skr/harmes?duplicate=true)
 
 ### Step 2: Add Your Secrets
 
@@ -304,17 +304,5 @@ docker compose up --build
 - **Provider not showing up:** If it is a Hermes-native provider, run `hermes model` and complete the provider-specific setup there. If it is a custom endpoint, verify the `base_url` exposes `/v1/models` or `/v1/chat/completions`.
 - **Space keeps sleeping:** Add `CLOUDFLARE_WORKERS_TOKEN` to enable automatic keep-awake monitoring.
 
-## 🌟 More Projects
-
-Similar projects by [@somratpro](https://github.com/somratpro) — all free, one-click deploy on HF Spaces:
-
-| Project | What it runs | HF Space | GitHub |
-| :--- | :--- | :--- | :--- |
-| **HuggingFlow** | DeerFlow — deep research agent | [Space](https://huggingface.co/spaces/somratpro/HuggingFlow) | [Repo](https://github.com/somratpro/HuggingFlow) |
-| **Hugging8n** | n8n — workflow & automation platform | [Space](https://huggingface.co/spaces/somratpro/Hugging8n) | [Repo](https://github.com/somratpro/hugging8n) |
-| **HuggingClaw** | OpenClaw — Claude Code in the browser | [Space](https://huggingface.co/spaces/somratpro/HuggingClaw) | [Repo](https://github.com/somratpro/huggingclaw) |
-| **HuggingClip** | Paperclip — AI agent orchestration platform | [Space](https://huggingface.co/spaces/somratpro/HuggingClip) | [Repo](https://github.com/somratpro/huggingclip) |
-| **HuggingPost** | Postiz — social-media scheduler | [Space](https://huggingface.co/spaces/somratpro/HuggingPost) | [Repo](https://github.com/somratpro/huggingpost) |
-
 ---
-*Made with ❤️ by [@somratpro](https://github.com/somratpro)*
+*Made with ❤️ by [@deepak-skr](https://github.com/deepak-skr)*
