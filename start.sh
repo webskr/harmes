@@ -282,6 +282,8 @@ if model_name:
         model["provider"] = provider_name                  # explicit provider (openrouter, huggingface, custom…)
     else:
         model.pop("provider", None)                        # let Hermes infer from model-name prefix
+    if os.environ.get("LLM_API_KEY"):
+        model["api_key"] = os.environ["LLM_API_KEY"]
 else:
     model = config.get("model", {})
     print("No LLM_MODEL/HERMES_MODEL set; leaving Hermes model config unchanged.")
@@ -312,14 +314,18 @@ if os.environ.get("TELEGRAM_BOT_TOKEN"):
         extra.setdefault("base_url", os.environ["TELEGRAM_BASE_URL"])
         extra.setdefault("base_file_url", os.environ.get("TELEGRAM_BASE_FILE_URL") or os.environ["TELEGRAM_BASE_URL"])
     if os.environ.get("TELEGRAM_ALLOWED_USERS"):
-        config.setdefault("telegram", {}).setdefault("allow_from", [
+        allowed = [
             item.strip()
             for item in os.environ["TELEGRAM_ALLOWED_USERS"].split(",")
             if item.strip()
-        ])
+        ]
+        config.setdefault("telegram", {})["allow_from"] = allowed
+        if allowed:
+            telegram["home_channel_id"] = allowed[0]
+            config.setdefault("telegram", {})["home_channel"] = allowed[0]
     cron_cfg = config.setdefault("cron", {})
-    cron_cfg.setdefault("default_target", "telegram")
-    cron_cfg.setdefault("deliver_to_home", True)
+    cron_cfg["default_target"] = "telegram"
+    cron_cfg["deliver_to_home"] = True
 
 path.write_text(yaml.safe_dump(config, sort_keys=False), encoding="utf-8")
 path.chmod(0o600)
