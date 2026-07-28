@@ -317,6 +317,9 @@ if os.environ.get("TELEGRAM_BOT_TOKEN"):
             for item in os.environ["TELEGRAM_ALLOWED_USERS"].split(",")
             if item.strip()
         ])
+    cron_cfg = config.setdefault("cron", {})
+    cron_cfg.setdefault("default_target", "telegram")
+    cron_cfg.setdefault("deliver_to_home", True)
 
 path.write_text(yaml.safe_dump(config, sort_keys=False), encoding="utf-8")
 path.chmod(0o600)
